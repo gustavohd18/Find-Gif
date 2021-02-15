@@ -19,6 +19,7 @@ samples, guidance on mobile development, and a full API reference.
 - Search Gif.
 - Share Gif in anothers apps.
 - See tradings Gif.
+- Dowload Gif just for android.
 
 ## FAQ:
 
