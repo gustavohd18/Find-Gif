@@ -4,7 +4,8 @@ A simple app to search for gifs and share in apps.
 
 # Screenshot
 
-<img src="/screenshot/main.png" width = "500" height="700px"/>
+<img src="/screenshot/wanda.png" width = "300" height="300px"/><img src="/screenshot/main.png" width = "300" height="300px"/>
+<img src="/screenshot/detail.png" width = "300" height="300px"/> <img src="/screenshot/share.png" width = "300" height="300px"/>
 
 ## Getting Started
 
