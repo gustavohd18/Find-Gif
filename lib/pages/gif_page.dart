@@ -1,6 +1,6 @@
 import 'package:find_gif/model/gif.dart';
+import 'package:find_gif/service/api.dart';
 import 'package:flutter/material.dart';
-import 'package:image_downloader/image_downloader.dart';
 import 'package:share/share.dart';
 
 class GifPage extends StatelessWidget {
@@ -14,17 +14,9 @@ class GifPage extends StatelessWidget {
         iconTheme: IconThemeData(color: Colors.white),
         title: Text(_gif.title, style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.black,
-        actions: [
-          IconButton(
-            icon: Icon(Icons.share),
-            onPressed: () {
-              ImageDownloader.downloadImage(_gif.source);
-              Share.share(_gif.source);
-            },
-          )
-        ],
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
             child: Image.network(_gif.source),
@@ -35,7 +27,7 @@ class GifPage extends StatelessWidget {
               IconButton(
                 icon: Icon(Icons.share),
                 color: Colors.white,
-                iconSize: 18,
+                iconSize: 22,
                 onPressed: () {
                   Share.share(_gif.source);
                 },
@@ -43,10 +35,10 @@ class GifPage extends StatelessWidget {
               IconButton(
                 icon: Icon(Icons.file_download),
                 color: Colors.white,
-                iconSize: 18,
-                onPressed: ()  {
+                iconSize: 22,
+                onPressed: () {
                   //for now dowload just work with android devices
-                   ImageDownloader.downloadImage(_gif.source);
+                 downloadImage(_gif.source);
                 },
               ),
             ],
