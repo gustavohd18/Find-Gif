@@ -1,4 +1,5 @@
 import 'package:find_gif/service/api.dart';
+import 'package:find_gif/widgets/gif_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
@@ -49,28 +50,8 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Expanded(
-            child: FutureBuilder(
-              future: searchGIfs(_search,_offset),
-              builder: (context, snapshot){
-                switch(snapshot.connectionState){
-                  case ConnectionState.waiting:
-                  case ConnectionState.none:
-                    return Container(
-                      width: 250.0,
-                      height: 250.0,
-                      alignment: Alignment.center,
-                      child: CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                        strokeWidth: 5.0,
-                      ),
-                    );
-                  default:
-                    if(snapshot.hasError) return Center(child: Text("Aconteceu um erro", textAlign: TextAlign.center) );
-                    else return _createGifTable(context, snapshot);
-                }
-              }
+            child: GifList(searchGIfs(_search,_offset),_search, () => _offset+=19)
             ),
-          )
         ],
       ),
     );

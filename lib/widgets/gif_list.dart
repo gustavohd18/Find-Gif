@@ -1,9 +1,12 @@
 import 'package:find_gif/model/gif.dart';
+import 'package:find_gif/widgets/gif_grid.dart';
 import 'package:flutter/material.dart';
 
 class GifList extends StatelessWidget {
   final Future<List<GIF>> _gifs;
-  GifList(this._gifs);
+  final Function _handlePlusButton;
+  final String _search;
+  GifList(this._gifs, this._search,this._handlePlusButton);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,9 @@ class GifList extends StatelessWidget {
                     child:
                         Text("Aconteceu um erro", textAlign: TextAlign.center));
               else
-                return Container();
+                return Container(
+                  child: GifGrid(_search, snapshot,_handlePlusButton),
+                );
           }
         });
   }
