@@ -12,8 +12,10 @@ class GifGrid extends StatelessWidget {
   GifGrid(this._search, this._snapshot, this._handleWithPlusButton);
 
   int _getCount(List data) {
-    if (_search == null) {
+    if (_search == null && data != null) {
       return data.length;
+    } else if (data == null && _search == null) {
+      return 0;
     } else {
       return data.length + 1;
     }
